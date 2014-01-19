@@ -39,6 +39,13 @@ namespace JDownloaderAPItest
                 sXml += s;
 //                addLog(s);
             }
+            //de-serialize to dataset
+            JDownLoaderAPI.jdownloader_data data = new JDownLoaderAPI.jdownloader_data(sXml);
+            dataGridView1.DataSource = data._ds;
+            dataGridView1.DataMember = data._ds.Tables[0].TableName;
+            dataGridView1.Refresh();
+
+            //de-serialize XML to class
             jdownloaderPackage jp;
             jp = (jdownloaderPackage) jdownloaderPackage.DeserializeFromXmlString(sXml, typeof(jdownloaderPackage));
             foreach (jDownloaderRemoteControlAPI.package p in jp.package)
