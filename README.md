@@ -1,4 +1,6 @@
 jDownloaderAPIcs
 ================
 
-modded JDownloaderAPI C#
+modded JDownloaderAPI C# found at http://sourceforge.net/projects/jdownloaderapi/support
+
+
