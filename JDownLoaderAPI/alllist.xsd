@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="jdownloader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="package"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="package">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="file"/>
+      </xs:sequence>
+      <xs:attribute name="package_ETA" use="required"/>
+      <xs:attribute name="package_linksinprogress" use="required" type="xs:integer"/>
+      <xs:attribute name="package_linkstotal" use="required" type="xs:integer"/>
+      <xs:attribute name="package_loaded" use="required"/>
+      <xs:attribute name="package_name" use="required" type="xs:NCName"/>
+      <xs:attribute name="package_percent" use="required" type="xs:decimal"/>
+      <xs:attribute name="package_size" use="required"/>
+      <xs:attribute name="package_speed" use="required"/>
+      <xs:attribute name="package_todo" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="file">
+    <xs:complexType>
+      <xs:attribute name="file_hoster" use="required" type="xs:NCName"/>
+      <xs:attribute name="file_name" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="file_package" use="required" type="xs:NCName"/>
+      <xs:attribute name="file_percent" use="required" type="xs:decimal"/>
+      <xs:attribute name="file_speed" use="required" type="xs:integer"/>
+      <xs:attribute name="file_status" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
