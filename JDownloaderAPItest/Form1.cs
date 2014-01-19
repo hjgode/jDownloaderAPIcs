@@ -43,11 +43,12 @@ namespace JDownloaderAPItest
             jp = (jdownloaderPackage) jdownloaderPackage.DeserializeFromXmlString(sXml, typeof(jdownloaderPackage));
             foreach (jDownloaderRemoteControlAPI.package p in jp.package)
             {
-                addLog("package: " + p.package_name+ "("+p.package_percent.ToString()+")");
-                foreach (jDownloaderRemoteControlAPI.file f in p.file)
-                {
-                    addLog("\t" + f.file_name);
-                }
+                //addLog("package: " + p.package_name+ "("+p.package_percent.ToString()+")");
+                //foreach (jDownloaderRemoteControlAPI.file f in p.file)
+                //{
+                //    addLog("\tFile: " + f.file_name);
+                //}
+                addLog(p.dump());
             }
         }
         delegate void SetTextCallback(string text);

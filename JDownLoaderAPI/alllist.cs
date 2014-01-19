@@ -62,6 +62,17 @@ namespace jDownloaderRemoteControlAPI {
         
         private package[] packageField;
         
+        public string dump()
+        {
+            string s = "";
+            //string sTAB = "\t";
+            foreach (package p in this.package)
+            {
+                s += p.dump()+"\r\n";
+            }
+            return s;
+        }
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("package")]
         public package[] package {
@@ -100,8 +111,26 @@ namespace jDownloaderRemoteControlAPI {
         
         private string package_todoField;
         
-        private file[] fileField;
-        
+        private @file[] fileField;
+
+        public string dump()
+        {
+            string s = "";
+            string sTAB = "\t";
+            s +=
+                this.package_name + sTAB +
+                this.package_ETA + sTAB +
+                this.package_percent.ToString() + sTAB +
+                this.package_size + sTAB +
+                this.package_speed + sTAB +
+                this.package_todo + sTAB +
+                this.package_loaded + sTAB;
+            foreach(file f in this.file){
+                s += f.dump();
+                s += "\r\n";
+            }
+            return s;
+        }
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string package_ETA {
@@ -219,7 +248,7 @@ namespace jDownloaderRemoteControlAPI {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=true)]
-    public partial class file {
+    public class @file {
         
         private string file_hosterField;
         
@@ -232,7 +261,21 @@ namespace jDownloaderRemoteControlAPI {
         private string file_speedField;
         
         private string file_statusField;
-        
+
+        public string dump()
+        {
+            string s = "";
+            string sTAB = "\t";
+            s +=
+                this.file_package + sTAB +
+                this.file_name + sTAB +
+                this.file_hoster + sTAB +
+                this.file_percent.ToString() +
+                this.file_speed + sTAB +
+                this.file_status;
+            return s;
+        }
+
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
         public string file_hoster {
