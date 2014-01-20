@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.IO;
+
 namespace jDownloaderRemoteControlAPI
 {
     public class Remote
@@ -11,7 +12,6 @@ namespace jDownloaderRemoteControlAPI
         private WebRequest request;
         private Stream dataStream;
         private string status;
-        private int port;
         public String Status
         {
             get

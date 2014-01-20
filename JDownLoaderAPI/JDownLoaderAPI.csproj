@@ -46,9 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="alllist.cs" />
-    <Compile Include="alllist_ds.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="jDownloaderRemoteControlAPI.cs" />
     <Compile Include="jdownloader_data.cs">
       <SubType>Component</SubType>

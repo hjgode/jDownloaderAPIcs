@@ -13,7 +13,7 @@ namespace JDownloaderAPItest
 {
     public partial class Form1 : Form
     {
-        jDownloaderRemoteControlAPI.jDownloaderRemoteControlAPI jd;
+        jDownloaderRemoteControlAPI.jDownloaderAPI jd;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace JDownloaderAPItest
             int iPort = 10025;
             try { iPort = int.Parse(txtPort.Text); }
             catch (Exception) { }
-            jd = new jDownloaderRemoteControlAPI.jDownloaderRemoteControlAPI(sHost, iPort);
+            jd = new jDownloaderRemoteControlAPI.jDownloaderAPI(sHost, iPort);
             jDownloaderRemoteControlAPI.DownloadStatus status = jd.DownloadStatus;
             lblStatus.Text = status.ToString();
 
@@ -48,7 +48,7 @@ namespace JDownloaderAPItest
             //de-serialize XML to class
             jdownloaderPackage jp;
             jp = (jdownloaderPackage) jdownloaderPackage.DeserializeFromXmlString(sXml, typeof(jdownloaderPackage));
-            foreach (jDownloaderRemoteControlAPI.package p in jp.package)
+            foreach (jDownloaderRemoteControlAPI.jdownloaderPackage.package p in jp.packages)
             {
                 //addLog("package: " + p.package_name+ "("+p.package_percent.ToString()+")");
                 //foreach (jDownloaderRemoteControlAPI.file f in p.file)
@@ -56,6 +56,7 @@ namespace JDownloaderAPItest
                 //    addLog("\tFile: " + f.file_name);
                 //}
                 addLog(p.dump());
+                System.Diagnostics.Debug.WriteLine(p.dump());
             }
         }
         delegate void SetTextCallback(string text);

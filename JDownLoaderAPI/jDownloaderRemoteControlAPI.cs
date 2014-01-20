@@ -11,7 +11,7 @@ namespace jDownloaderRemoteControlAPI
         NOT_RUNNING,
         STOPPING
     }
-    public class jDownloaderRemoteControlAPI
+    public class jDownloaderAPI
     {
         private string _host;
         private int _port;
@@ -20,7 +20,7 @@ namespace jDownloaderRemoteControlAPI
         /// </summary>
         /// <param name="Host">The host url of jDownloader RemoteControl</param>
         /// <param name="Port">The port jDownloader RemoteControl is listenig</param>
-        public jDownloaderRemoteControlAPI(string Host, int Port)
+        public jDownloaderAPI(string Host, int Port)
         {
             // sanitize host url
             if (Host.EndsWith("/"))
@@ -36,7 +36,7 @@ namespace jDownloaderRemoteControlAPI
         /// Constructor, assuming Host is localhost
         /// </summary>
         /// <param name="Port">The port jDownloader RemoteControl is listenig</param>
-        public jDownloaderRemoteControlAPI(int Port)
+        public jDownloaderAPI(int Port)
         {
             // set properties
             this._host = "http://localhost/";
